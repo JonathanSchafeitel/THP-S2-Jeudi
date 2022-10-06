@@ -9,25 +9,22 @@ def countHandle(handle)
 end
 countHandle(handle)
 
-
 # Quel est le handle le plus court de cette liste ?
 def courtHandle(handle)
   puts 'Quel est le handle le plus court de cette liste ?'
-  puts "Le plus court handle de la liste est #{handle.min}"
+  puts "Le plus court handle de la liste est #{handle.min_by(&:length)}"
   puts
 end
 courtHandle(handle)
-
 
 # Combien y-a-t'il de handle contenant 5 caractères (le `@` ne compte pas pour un caractère)
 def fiveHandle(handle)
   newArray = handle
   puts "Combien y-a-t'il de handle contenant 5 caractères (le `@` ne compte pas pour un caractère)"
-  puts "Il y a #{newArray.select { |i| i.length == 6 }} qui contenant max 5 caractères"
+  puts "Il y a #{newArray.select { |i| i.length <= 6 }} qui contenant max 5 caractères"
   puts
 end
 fiveHandle(handle)
-
 
 # Combien commencent par une majuscule (première lettre juste après le @)
 def startCapitalsHandle(handle)
@@ -41,21 +38,19 @@ def startCapitalsHandle(handle)
 end
 startCapitalsHandle(handle)
 
-
 # Trie la liste de handle par ordre alphabétique.
 def sortAlphabeticalHandle(handle)
   puts 'Trie la liste de handle par ordre alphabétique.'
-  puts ""
+  puts ''
   puts "#{handle.sort}"
   puts
 end
 sortAlphabeticalHandle(handle)
 
-
 # Trie la liste de handle par taille des handle (les plus petits en premiers, les plus grands après)
 def sortSizeHandle(handle)
   puts 'Trie la liste de handle par taille des handle (les plus petits en premiers, les plus grands après)'
-  puts ""
+  puts ''
   puts "#{handle.sort_by(&:length)}"
   puts
 end
@@ -63,28 +58,18 @@ sortSizeHandle(handle)
 
 # Quelle est la position dans l'array de la personne `@epenser` ?
 def position_epenser(handle)
-  puts "Quelle est la position dans le tableau de la personne @epenser ?"
-  puts "@epenser est en position #{handle.index("@epenser")}"
+  puts 'Quelle est la position dans le tableau de la personne @epenser ?'
+  puts "@epenser est en position #{handle.index('@epenser')}"
   puts
 end
 position_epenser(handle)
 
-# Sors-moi une répartition des handle par taille de ces derniers (nombre de handle avec 1 caractère,
-# nombre de handle avec 2 caractères, nombre de handle avec 3 caractères, etc)
-def divisionHandle(handle)
- 
-  puts "Combien y-a-t'il de handle contenant 5 caractères (le `@` ne compte pas pour un caractère)"
-  puts "Il y a #{newArray.select! { |i| i.length == 6 }} contenant max 5 caractères"
-  puts
-end
-fiveHandle(handle)
 
 # Sors-moi une répartition des handle par taille de ces derniers (nombre de handle avec 1 caractère,
 # nombre de handle avec 2 caractères, nombre de handle avec 3 caractères, etc)
 def divisionHandle(handle)
- 
-  puts "Voici une répartition par taille de caractères de ses derniers :"
-  
+  puts 'Voici une répartition par taille de caractères de ses derniers :'
+
   onecount = handle.select { |i| i.length == 1 }
   twocount = handle.select { |i| i.length == 2 }
   threecount = handle.select { |i| i.length == 3 }
@@ -118,7 +103,6 @@ def divisionHandle(handle)
   puts "14 caractères :#{fourteencount.count}"
   puts "15 caractères :#{fifteencount.count}"
   puts "16 caractères :#{sixteencount.count}"
-  puts ""
-
+  puts ''
 end
 divisionHandle(handle)

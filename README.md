@@ -1,0 +1,1 @@
+Exercice du Jeudi 06.10.2022 pour The Hacking Project
